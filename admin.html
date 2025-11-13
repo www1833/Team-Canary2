@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理画面 | Canary Army</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <span class="site-header__logo-en">Canary Army</span>
+        <span class="site-header__logo-ja">カナリア軍団</span>
+      </div>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <button class="site-nav__toggle" aria-expanded="false" aria-controls="global-nav">メニュー</button>
+        <ul class="site-nav__list" id="global-nav">
+          <li><a href="index.html" data-nav-target="home">HOME</a></li>
+          <li><a href="members.html" data-nav-target="members">メンバー紹介</a></li>
+          <li><a href="admin.html" data-nav-target="admin">管理画面</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">メンバー管理</h1>
+        <p class="page-hero__lead">ブラウザに保存されたメンバー情報を編集できます。入力後は右下の一覧で内容をご確認ください。</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container admin">
+        <div class="admin__form-panel">
+          <h2 class="section__title">メンバー追加・編集</h2>
+          <form id="member-form" class="admin-form">
+            <input type="hidden" id="member-id">
+            <div class="form-group">
+              <label for="member-number">背番号</label>
+              <input type="number" id="member-number" name="number" required min="0">
+            </div>
+            <div class="form-group">
+              <label for="member-name">名前</label>
+              <input type="text" id="member-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="member-position">ポジション</label>
+              <select id="member-position" name="position" required>
+                <option value="投手">投手</option>
+                <option value="捕手">捕手</option>
+                <option value="内野手">内野手</option>
+                <option value="外野手">外野手</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="member-style">打席・利き腕</label>
+              <input type="text" id="member-style" name="style" placeholder="例：右投げ右打ち" required>
+            </div>
+            <div class="form-group">
+              <label for="member-comment">一言コメント</label>
+              <textarea id="member-comment" name="comment" rows="3" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="button button--primary" id="submit-button">追加</button>
+              <button type="button" class="button button--ghost" id="reset-form">クリア</button>
+            </div>
+          </form>
+          <button type="button" class="button button--outline admin__reset" id="reset-data">全メンバーを初期ダミーデータに戻す</button>
+        </div>
+
+        <div class="admin__table-panel">
+          <h2 class="section__title">登録メンバー一覧</h2>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">背番号</th>
+                  <th scope="col">名前</th>
+                  <th scope="col">ポジション</th>
+                  <th scope="col">打席・利き腕</th>
+                  <th scope="col">コメント</th>
+                  <th scope="col" class="data-table__actions">操作</th>
+                </tr>
+              </thead>
+              <tbody id="member-table-body">
+                <!-- メンバー行をJavaScriptで挿入 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Canary Army 草野球チーム</small>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
