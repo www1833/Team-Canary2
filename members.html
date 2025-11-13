@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンバー紹介 | Canary Army</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="members">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <span class="site-header__logo-en">Canary Army</span>
+        <span class="site-header__logo-ja">カナリア軍団</span>
+      </div>
+      <nav class="site-nav" aria-label="メインメニュー">
+        <button class="site-nav__toggle" aria-expanded="false" aria-controls="global-nav">メニュー</button>
+        <ul class="site-nav__list" id="global-nav">
+          <li><a href="index.html" data-nav-target="home">HOME</a></li>
+          <li><a href="members.html" data-nav-target="members">メンバー紹介</a></li>
+          <li><a href="admin.html" data-nav-target="admin">管理画面</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">メンバー紹介</h1>
+        <p class="page-hero__lead">個性豊かな仲間たちが、カナリア軍団の勝利を支えています。あなたも仲間に加わりませんか？</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="filter-bar">
+          <label class="filter-bar__item">
+            ポジションで絞り込み
+            <select id="position-filter">
+              <option value="all">全て</option>
+              <option value="投手">投手</option>
+              <option value="捕手">捕手</option>
+              <option value="内野手">内野手</option>
+              <option value="外野手">外野手</option>
+            </select>
+          </label>
+          <button type="button" class="button button--outline" id="sort-number" aria-pressed="true">背番号順（昇順）</button>
+        </div>
+
+        <div class="member-grid" id="member-grid" aria-live="polite">
+          <!-- メンバーカードをJavaScriptで挿入 -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Canary Army 草野球チーム</small>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
